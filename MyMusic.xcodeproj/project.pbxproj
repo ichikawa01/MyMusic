@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FB1844F2DC91ACD00C22875 /* FuriganaText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1844E2DC91ACD00C22875 /* FuriganaText.swift */; };
+		5FB184532DC9247200C22875 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184522DC9247200C22875 /* MainView.swift */; };
+		5FB184552DC9248100C22875 /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184542DC9248100C22875 /* StartView.swift */; };
+		5FB184572DC9249500C22875 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184562DC9249500C22875 /* GameView.swift */; };
+		5FB1845B2DC9340500C22875 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1845A2DC9340500C22875 /* ResultView.swift */; };
+		5FB1845D2DC93C8400C22875 /* QuizCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1845C2DC93C8400C22875 /* QuizCategory.swift */; };
+		5FB1845F2DC93CFB00C22875 /* WordLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1845E2DC93CFB00C22875 /* WordLoader.swift */; };
+		5FB1846F2DC9404D00C22875 /* level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB1846C2DC9404D00C22875 /* level_3.json */; };
+		5FB184722DC9407600C22875 /* level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB184712DC9407600C22875 /* level_2.json */; };
+		5FB184742DC95A7F00C22875 /* level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FB184732DC95A7F00C22875 /* level_1.json */; };
+		5FB184762DC9EA4D00C22875 /* QuizMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184752DC9EA4D00C22875 /* QuizMode.swift */; };
+		5FB184782DC9F1E600C22875 /* ModeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184772DC9F1E600C22875 /* ModeSelectView.swift */; };
+		5FB1847A2DC9F26200C22875 /* CategorySelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB184792DC9F26200C22875 /* CategorySelectView.swift */; };
+		5FB1847C2DCA22CC00C22875 /* Rank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB1847B2DCA22CC00C22875 /* Rank.swift */; };
 		5FE8B93F2DC774F90000B97D /* MyMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE8B93E2DC774F90000B97D /* MyMusicApp.swift */; };
-		5FE8B9412DC774F90000B97D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE8B9402DC774F90000B97D /* ContentView.swift */; };
 		5FE8B9432DC774FA0000B97D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8B9422DC774FA0000B97D /* Assets.xcassets */; };
 		5FE8B9462DC774FA0000B97D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FE8B9452DC774FA0000B97D /* Preview Assets.xcassets */; };
 		5FE8B9502DC774FB0000B97D /* MyMusicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE8B94F2DC774FB0000B97D /* MyMusicTests.swift */; };
@@ -34,9 +47,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5FB1844E2DC91ACD00C22875 /* FuriganaText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuriganaText.swift; sourceTree = "<group>"; };
+		5FB184522DC9247200C22875 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5FB184542DC9248100C22875 /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		5FB184562DC9249500C22875 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		5FB1845A2DC9340500C22875 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		5FB1845C2DC93C8400C22875 /* QuizCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCategory.swift; sourceTree = "<group>"; };
+		5FB1845E2DC93CFB00C22875 /* WordLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLoader.swift; sourceTree = "<group>"; };
+		5FB1846C2DC9404D00C22875 /* level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = level_3.json; path = ../../../../../Downloads/level_3.json; sourceTree = "<group>"; };
+		5FB184712DC9407600C22875 /* level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = level_2.json; path = ../../../../../Downloads/level_2.json; sourceTree = "<group>"; };
+		5FB184732DC95A7F00C22875 /* level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = level_1.json; path = ../../../../../Downloads/level_1.json; sourceTree = "<group>"; };
+		5FB184752DC9EA4D00C22875 /* QuizMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMode.swift; sourceTree = "<group>"; };
+		5FB184772DC9F1E600C22875 /* ModeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectView.swift; sourceTree = "<group>"; };
+		5FB184792DC9F26200C22875 /* CategorySelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectView.swift; sourceTree = "<group>"; };
+		5FB1847B2DCA22CC00C22875 /* Rank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rank.swift; sourceTree = "<group>"; };
 		5FE8B93B2DC774F90000B97D /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE8B93E2DC774F90000B97D /* MyMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicApp.swift; sourceTree = "<group>"; };
-		5FE8B9402DC774F90000B97D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5FE8B9422DC774FA0000B97D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FE8B9452DC774FA0000B97D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5FE8B94B2DC774FB0000B97D /* MyMusicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyMusicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +97,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FB184602DC93E4E00C22875 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FB184732DC95A7F00C22875 /* level_1.json */,
+				5FB184712DC9407600C22875 /* level_2.json */,
+				5FB1846C2DC9404D00C22875 /* level_3.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5FE8B9322DC774F90000B97D = {
 			isa = PBXGroup;
 			children = (
@@ -95,8 +131,19 @@
 			isa = PBXGroup;
 			children = (
 				5FE8B93E2DC774F90000B97D /* MyMusicApp.swift */,
-				5FE8B9402DC774F90000B97D /* ContentView.swift */,
+				5FB184522DC9247200C22875 /* MainView.swift */,
+				5FB184542DC9248100C22875 /* StartView.swift */,
+				5FB184772DC9F1E600C22875 /* ModeSelectView.swift */,
+				5FB184792DC9F26200C22875 /* CategorySelectView.swift */,
+				5FB184562DC9249500C22875 /* GameView.swift */,
+				5FB1845A2DC9340500C22875 /* ResultView.swift */,
+				5FB184752DC9EA4D00C22875 /* QuizMode.swift */,
+				5FB1845C2DC93C8400C22875 /* QuizCategory.swift */,
+				5FB1844E2DC91ACD00C22875 /* FuriganaText.swift */,
+				5FB1845E2DC93CFB00C22875 /* WordLoader.swift */,
+				5FB1847B2DCA22CC00C22875 /* Rank.swift */,
 				5FE8B9422DC774FA0000B97D /* Assets.xcassets */,
+				5FB184602DC93E4E00C22875 /* Resources */,
 				5FE8B9442DC774FA0000B97D /* Preview Content */,
 			);
 			path = MyMusic;
@@ -231,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB184742DC95A7F00C22875 /* level_1.json in Resources */,
 				5FE8B9462DC774FA0000B97D /* Preview Assets.xcassets in Resources */,
+				5FB1846F2DC9404D00C22875 /* level_3.json in Resources */,
 				5FE8B9432DC774FA0000B97D /* Assets.xcassets in Resources */,
+				5FB184722DC9407600C22875 /* level_2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +307,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FE8B9412DC774F90000B97D /* ContentView.swift in Sources */,
 				5FE8B93F2DC774F90000B97D /* MyMusicApp.swift in Sources */,
+				5FB184552DC9248100C22875 /* StartView.swift in Sources */,
+				5FB184532DC9247200C22875 /* MainView.swift in Sources */,
+				5FB184782DC9F1E600C22875 /* ModeSelectView.swift in Sources */,
+				5FB1845D2DC93C8400C22875 /* QuizCategory.swift in Sources */,
+				5FB1845F2DC93CFB00C22875 /* WordLoader.swift in Sources */,
+				5FB184762DC9EA4D00C22875 /* QuizMode.swift in Sources */,
+				5FB1847A2DC9F26200C22875 /* CategorySelectView.swift in Sources */,
+				5FB1845B2DC9340500C22875 /* ResultView.swift in Sources */,
+				5FB1844F2DC91ACD00C22875 /* FuriganaText.swift in Sources */,
+				5FB1847C2DCA22CC00C22875 /* Rank.swift in Sources */,
+				5FB184572DC9249500C22875 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,11 +485,13 @@
 				DEVELOPMENT_TEAM = H9Q9T368X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真撮影にカメラを使用します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +516,13 @@
 				DEVELOPMENT_TEAM = H9Q9T368X8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "写真撮影にカメラを使用します。";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "撮影した写真の保存に利用します。";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
