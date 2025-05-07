@@ -31,14 +31,29 @@ struct StartView: View {
                 Spacer().frame(height: 180)
                 
                 let rank = Rank.getRank(for: totalCorrect)
+                let nextThreshold = Rank.nextThreshold(for: totalCorrect)
+                let remaining = nextThreshold.map { $0 - totalCorrect }
 
                 Text("現在の称号：\(rank.rawValue)：\(totalCorrect)")
                     .font(.title2)
                     .bold()
                     .foregroundColor(.gray)
                     .background(Color.black)
-                    .frame(width: 400, height: 40)
-                    .padding(.bottom, 50)
+                    .frame(width: 400, height: 0)
+
+                if let remaining = remaining {
+                    Text("次の称号まで残り \(remaining) 文字")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.gray)
+                        .background(Color.black)
+                        .padding(.bottom, 60)
+                } else {
+                    Text("最高称号に到達！")
+                        .font(.subheadline)
+                        .foregroundColor(.yellow)
+                        .padding(.bottom, 50)
+                }
 
                 
                 Button(action: {
@@ -57,5 +72,11 @@ struct StartView: View {
             }
         }
     }
+}
+
+#Preview {
+    StartView(
+        onNext: {},
+        totalCorrect: 1)
 }
 

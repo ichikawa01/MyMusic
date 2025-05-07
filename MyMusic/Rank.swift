@@ -18,6 +18,7 @@ enum Rank: String {
     case shihanDai = "師範代"
     case menkyoKaiden = "免許皆伝"
     case kami = "神"
+    
 
     static func getRank(for totalCorrect: Int) -> Rank {
         switch totalCorrect {
@@ -33,5 +34,23 @@ enum Rank: String {
         default: return .kami
         }
     }
+    
+    
+    static func nextThreshold(for totalCorrect: Int) -> Int? {
+        switch totalCorrect {
+        case 0..<30: return 30
+        case 30..<100: return 100
+        case 100..<500: return 500
+        case 500..<1000: return 1000
+        case 1000..<1500: return 1500
+        case 1500..<2000: return 2000
+        case 2000..<3000: return 3000
+        case 3000..<5000: return 5000
+        case 5000..<10000: return 10000
+        default: return nil // 「神」ランクには次がない
+        }
+    }
+    
+    
 }
 
