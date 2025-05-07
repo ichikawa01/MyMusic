@@ -32,6 +32,9 @@
 		5FE8B95A2DC774FB0000B97D /* MyMusicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE8B9592DC774FB0000B97D /* MyMusicUITests.swift */; };
 		5FE8B95C2DC774FB0000B97D /* MyMusicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE8B95B2DC774FB0000B97D /* MyMusicUITestsLaunchTests.swift */; };
 		5FEBC9952DCBCE2D0052F780 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBC9942DCBCE2D0052F780 /* AuthManager.swift */; };
+		5FEBC9972DCBD46E0052F780 /* NameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBC9962DCBD46E0052F780 /* NameInputView.swift */; };
+		5FEBC9992DCBE3660052F780 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBC9982DCBE3660052F780 /* StatusView.swift */; };
+		5FEBC99B2DCBE3BE0052F780 /* NameEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBC99A2DCBE3BE0052F780 /* NameEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +82,9 @@
 		5FE8B9592DC774FB0000B97D /* MyMusicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicUITests.swift; sourceTree = "<group>"; };
 		5FE8B95B2DC774FB0000B97D /* MyMusicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMusicUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5FEBC9942DCBCE2D0052F780 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		5FEBC9962DCBD46E0052F780 /* NameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameInputView.swift; sourceTree = "<group>"; };
+		5FEBC9982DCBE3660052F780 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		5FEBC99A2DCBE3BE0052F780 /* NameEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +163,9 @@
 				5FB184792DC9F26200C22875 /* CategorySelectView.swift */,
 				5FB184562DC9249500C22875 /* GameView.swift */,
 				5FB1845A2DC9340500C22875 /* ResultView.swift */,
+				5FEBC9962DCBD46E0052F780 /* NameInputView.swift */,
+				5FEBC99A2DCBE3BE0052F780 /* NameEditView.swift */,
+				5FEBC9982DCBE3660052F780 /* StatusView.swift */,
 				5F7615F82DCB9E0300EE2E69 /* ScoreManager.swift */,
 				5FEBC9942DCBCE2D0052F780 /* AuthManager.swift */,
 				5FB184752DC9EA4D00C22875 /* QuizMode.swift */,
@@ -343,10 +352,13 @@
 				5FB184552DC9248100C22875 /* StartView.swift in Sources */,
 				5FB184532DC9247200C22875 /* MainView.swift in Sources */,
 				5FB184782DC9F1E600C22875 /* ModeSelectView.swift in Sources */,
+				5FEBC9972DCBD46E0052F780 /* NameInputView.swift in Sources */,
 				5FB1845D2DC93C8400C22875 /* QuizCategory.swift in Sources */,
 				5FB1845F2DC93CFB00C22875 /* WordLoader.swift in Sources */,
 				5FB184762DC9EA4D00C22875 /* QuizMode.swift in Sources */,
 				5FB1847A2DC9F26200C22875 /* CategorySelectView.swift in Sources */,
+				5FEBC9992DCBE3660052F780 /* StatusView.swift in Sources */,
+				5FEBC99B2DCBE3BE0052F780 /* NameEditView.swift in Sources */,
 				5FB1845B2DC9340500C22875 /* ResultView.swift in Sources */,
 				5FB1844F2DC91ACD00C22875 /* FuriganaText.swift in Sources */,
 				5F7615F92DCB9E0300EE2E69 /* ScoreManager.swift in Sources */,

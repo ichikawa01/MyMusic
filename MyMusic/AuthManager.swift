@@ -12,6 +12,7 @@ class AuthManager {
 
     private init() {}
 
+    // アプリ起動時にユーザーIDを自動で取得
     func signInIfNeeded(completion: @escaping (String?) -> Void) {
         if let currentUser = Auth.auth().currentUser {
             completion(currentUser.uid)

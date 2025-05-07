@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
 
 enum AppScreen {
     case start
@@ -13,6 +15,9 @@ enum AppScreen {
     case categorySelect
     case game
     case result
+    
+    case status
+    case nameEdit
 }
 
 struct MainView: View {
@@ -28,9 +33,15 @@ struct MainView: View {
             switch currentScreen {
                 
             case .start:
-                StartView {
-                    transition(to: .modeSelect)
-                }
+                StartView(
+                    onNext: {
+                        transition(to: .modeSelect)
+                    },
+                    onStatus: {
+                        transition(to: .status)
+                    }
+                )
+
                 
             case .modeSelect:
                 ModeSelectView (
@@ -71,7 +82,35 @@ struct MainView: View {
                 ResultView(score: score, mode: selectedMode) {
                     transition(to: .start)
                 }
+            
+            case .status:
+                if let userId = Auth.auth().currentUser?.uid {
+                    StatusView(
+                        userId: userId,
+                        onBack: {
+                            transition(to: .start)
+                        },
+                        onEditName: {
+                            transition(to: .nameEdit)
+                        }
+                    )
+                }
+                
+            case .nameEdit:
+                if let userId = Auth.auth().currentUser?.uid {
+                    NameEditView(
+                        userId: userId,
+                        onClose: {
+                            transition(to: .status)
+                        },
+                        onBack: {
+                            transition(to: .start)
+                        }
+                    )
+                }
+                
             }
+
 
             if showFade {
                 Color.black
