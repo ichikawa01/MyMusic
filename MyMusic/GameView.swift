@@ -282,7 +282,7 @@ struct GameView: View {
 #Preview {
     GameView(
         mode: .timeLimit,
-        category: .level_1,
+        category: .level_3,
         onFinish: { _ in },
         onBack: { }
     )
