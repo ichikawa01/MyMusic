@@ -10,8 +10,8 @@ import SwiftUI
 
 struct ResultView: View {
     
-//    @Binding var path: NavigationPath
     let score: Int
+    let characterCount: Int
     let mode: QuizMode
     
     let onNext: () -> Void
@@ -21,44 +21,57 @@ struct ResultView: View {
     var body: some View {
         
         ZStack{
-            Image(.background)
+            Image(.result)
                 .resizable()
-                .scaledToFill()
+//                .scaledToFill()
                 .ignoresSafeArea()
             
             VStack(spacing: 20) {
-                Text("結果発表")
-                    .font(.largeTitle)
-                    .foregroundColor(.black)
-                    .padding()
                 
-                Text("スコア: \(score) 問正解！")
-                    .font(.title)
-                    .foregroundStyle(Color.black)
+                Spacer().frame(height: 70)
+                
+                ZStack{
+                    
+                    Image(.makimono)
+                        .resizable()
+                        .frame(height: 140)
+                        .ignoresSafeArea()
+                    
+                    VStack{
+                        Text(" \(score) 問クリア！")
+                            .font(.largeTitle)
+                            .foregroundStyle(Color.black)
+                        
+                        Text("合計 \(characterCount) 文字")
+                            .font(.title2)
+                            .foregroundStyle(Color.black)
+                    }
 
-                Spacer().frame(height: 1)
+                }
+
+                Spacer().frame(height: 60)
                 
-                VStack {
+                VStack (spacing: 20) {
                     Button("退場") {
                         onNext()
                     }
                     .padding()
+                    .font(.title)
                     .bold()
-                    .font(.title2)
-                    .frame(width: 120, height: 60)
-                    .background(Color.startBtn)
+                    .frame(width: 160, height: 60)
                     .foregroundColor(.white)
+                    .background(Color.startBtn)
                     .cornerRadius(12)
-                    
+                                        
                     Button("ランキングへ") {
                         onRanking()
                     }
                     .padding()
+                    .font(.title3)
                     .bold()
-                    .font(.title2)
-                    .frame(width: 180, height: 60)
-                    .background(Color.blue)
+                    .frame(width: 160, height: 60)
                     .foregroundColor(.white)
+                    .background(Color.startBtn)
                     .cornerRadius(12)
                     
                 }
@@ -73,7 +86,8 @@ struct ResultView: View {
 
 #Preview {
     ResultView(
-        score: 10,
+        score: 12,
+        characterCount: 56,
         mode: .timeLimit,
         onNext: {},
         onRanking: {}

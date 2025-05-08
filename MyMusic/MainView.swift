@@ -28,6 +28,8 @@ struct MainView: View {
     @State private var selectedMode: QuizMode = .timeLimit
     @State private var selectedCategory: QuizCategory = .level_1
     @State private var score: Int = 0
+    @State private var characterCount: Int = 0
+
 
     var body: some View {
         ZStack {
@@ -73,8 +75,9 @@ struct MainView: View {
                 GameView (
                     mode: selectedMode,
                     category: selectedCategory,
-                    onFinish: { result in
-                        score = result
+                    onFinish: { wordCount, charCount in
+                        score = wordCount
+                        characterCount = charCount
                         transition(to: .result)
                     },
                     onBack: {
@@ -85,6 +88,7 @@ struct MainView: View {
             case .result:
                 ResultView(
                     score: score,
+                    characterCount: characterCount,
                     mode: selectedMode,
                     onNext: {
                         transition(to: .start)

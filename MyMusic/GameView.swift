@@ -32,7 +32,7 @@ struct GameView: View {
     
     let mode: QuizMode
     let category: QuizCategory
-    let onFinish: (Int) -> Void
+    let onFinish: (Int, Int) -> Void
     let onBack: () -> Void
     let wordList: [WordItem]
     
@@ -48,7 +48,7 @@ struct GameView: View {
     }
     
     // wordList(json)をlordWords.swiftから取得
-    init(mode: QuizMode, category: QuizCategory, onFinish: @escaping (Int) -> Void, onBack: @escaping () -> Void) {
+    init(mode: QuizMode, category: QuizCategory, onFinish: @escaping (Int, Int) -> Void, onBack: @escaping () -> Void) {
         self.mode = mode
         self.category = category
         self.onFinish = onFinish
@@ -301,7 +301,8 @@ struct GameView: View {
 
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            onFinish(currentWordIndex)
+            onFinish(currentWordIndex, currentCharIndex)
+
         }
 
     }
@@ -312,7 +313,7 @@ struct GameView: View {
     GameView(
         mode: .timeLimit,
         category: .level_3,
-        onFinish: { _ in },
+        onFinish: { _, _ in },
         onBack: { }
     )
 }
