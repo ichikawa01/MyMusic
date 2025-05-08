@@ -18,43 +18,107 @@ enum RankingPeriod: String, CaseIterable {
     case daily, weekly, monthly, total
     
     var displayName: String {
-            switch self {
-            case .daily: return "今日"
-            case .weekly: return "今週"
-            case .monthly: return "今月"
-            case .total: return "累計"
-            }
+        switch self {
+        case .daily: return "今日"
+        case .weekly: return "今週"
+        case .monthly: return "今月"
+        case .total: return "累計"
         }
+    }
 }
 
 class RankingManager {
     static let shared = RankingManager()
     private let db = Firestore.firestore()
-
+    
     func submitScore(userId: String, userName: String, score: Int, mode: QuizModeRank) {
-        let now = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ja_JP")
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        
         let periods: [RankingPeriod] = [.daily, .weekly, .monthly, .total]
-
+        
         for period in periods {
-            let collectionName = "\(mode.rawValue)_\(period.rawValue)"
-            let ref = db.collection("rankings").document(collectionName).collection("entries").document(userId)
+            var suffix = ""
+            let calendar = Calendar(identifier: .gregorian)
+            let now = Date()
 
-            let data: [String: Any] = [
-                "userId": userId,
-                "userName": userName,
-                "score": score,
-                "timestamp": Timestamp(date: now)
-            ]
+            switch period {
+            case .daily:
+                suffix = formatDate(now, format: "yyyyMMdd")
+                
+            case .weekly:
+                // 今週の月曜日を取得して yyyyMMdd にする
+                let weekday = calendar.component(.weekday, from: now)
+                let offset = weekday == 1 ? -6 : 2 - weekday // 日曜なら-6、それ以外は月曜起点
+                if let monday = calendar.date(byAdding: .day, value: offset, to: now) {
+                    suffix = formatDate(monday, format: "yyyyMMdd")
+                }
 
-            ref.setData(data, merge: true)
+            case .monthly:
+                suffix = formatDate(now, format: "yyyyMM")
+                
+            case .total:
+                suffix = "total"
+            }
+
+            let topDoc = "\(mode.rawValue)_\(period.rawValue)"
+            let dateKey = suffix // 例: 20250508
+
+            let ref = db.collection("rankings")
+                .document(topDoc)
+                .collection(dateKey) // ← 日付ごとのサブコレクション
+                .document(userId)
+
+
+            // 過去の記録を超えているなら更新
+            ref.getDocument { doc, _ in
+                let previousScore = doc?.data()?["score"] as? Int ?? 0
+                
+                if score > previousScore {
+                    let data: [String: Any] = [
+                        "userId": userId,
+                        "userName": userName,
+                        "score": score,
+                        "timestamp": Timestamp(date: now)
+                    ]
+                    
+                    ref.setData(data, merge: true)
+                }
+            }
         }
     }
 
+
+        
     func fetchTopRankings(mode: QuizModeRank, period: RankingPeriod, completion: @escaping ([RankingEntry]) -> Void) {
-        let collectionName = "\(mode.rawValue)_\(period.rawValue)"
+        let topDoc = "\(mode.rawValue)_\(period.rawValue)"
+        let now = Date()
+        let calendar = Calendar(identifier: .gregorian)
+        var dateKey = ""
+
+        switch period {
+        case .daily:
+            dateKey = formatDate(now, format: "yyyyMMdd")
+
+        case .weekly:
+            let weekday = calendar.component(.weekday, from: now)
+            let offset = weekday == 1 ? -6 : 2 - weekday
+            if let monday = calendar.date(byAdding: .day, value: offset, to: now) {
+                dateKey = formatDate(monday, format: "yyyyMMdd")
+            }
+
+        case .monthly:
+            dateKey = formatDate(now, format: "yyyyMM")
+
+        case .total:
+            dateKey = "total"
+        }
+
         db.collection("rankings")
-            .document(collectionName)
-            .collection("entries")
+            .document(topDoc)
+            .collection(dateKey)
             .order(by: "score", descending: true)
             .limit(to: 100)
             .getDocuments { snapshot, error in
@@ -73,4 +137,14 @@ class RankingManager {
                 completion(entries)
             }
     }
+
+    func formatDate(_ date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        formatter.dateFormat = format
+        return formatter.string(from: date)
+    }
+
 }
+

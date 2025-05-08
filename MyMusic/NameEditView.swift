@@ -137,21 +137,48 @@ struct NameEditView: View {
 
     func save() {
         let db = Firestore.firestore()
+        let now = Date()
+        let calendar = Calendar(identifier: .gregorian)
         
         // 名前の更新
         db.collection("users").document(userId).setData(["userName": name], merge: true)
         
-        // ランキングの過去の全データ（最大１５件）の名前を更新
+        // 今の日時に対応するランキング日付キーを計算
+        let dateKeyDaily = formatDate(now, format: "yyyyMMdd")
+        
+        let weekday = calendar.component(.weekday, from: now)
+        let offset = weekday == 1 ? -6 : 2 - weekday
+        let monday = calendar.date(byAdding: .day, value: offset, to: now)!
+        let dateKeyWeekly = formatDate(monday, format: "yyyyMMdd")
+        
+        let dateKeyMonthly = formatDate(now, format: "yyyyMM")
+        let dateKeyTotal = "total"
+        
+        let periodsWithDates: [String: String] = [
+            "daily": dateKeyDaily,
+            "weekly": dateKeyWeekly,
+            "monthly": dateKeyMonthly,
+            "total": dateKeyTotal
+        ]
+        
         let modes: [String] = ["level_1", "level_2", "level_3"]
-        let periods: [String] = ["daily", "weekly", "monthly", "total"]
         
         for mode in modes {
-            for period in periods {
-                let path = "rankings/\(mode)_\(period)/entries/\(userId)"
+            for (period, dateKey) in periodsWithDates {
+                let path = "rankings/\(mode)_\(period)/\(dateKey)/\(userId)"
                 db.document(path).updateData(["userName": name])
             }
         }
     }
+    
+    func formatDate(_ date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier: "Asia/Tokyo")
+        formatter.dateFormat = format
+        return formatter.string(from: date)
+    }
+
 }
 
 #Preview {
