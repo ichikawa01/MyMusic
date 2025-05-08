@@ -18,6 +18,7 @@ enum AppScreen {
     
     case status
     case nameEdit
+    case ranking
 }
 
 struct MainView: View {
@@ -41,7 +42,7 @@ struct MainView: View {
                         transition(to: .status)
                     }
                 )
-
+                
                 
             case .modeSelect:
                 ModeSelectView (
@@ -85,10 +86,17 @@ struct MainView: View {
                 )
                 
             case .result:
-                ResultView(score: score, mode: selectedMode) {
-                    transition(to: .start)
-                }
-            
+                ResultView(
+                    score: score,
+                    mode: selectedMode,
+                    onNext: {
+                        transition(to: .start)
+                    },
+                    onRanking: {
+                        transition(to: .ranking)
+                    }
+                )
+                
             case .status:
                 if let userId = Auth.auth().currentUser?.uid {
                     StatusView(
@@ -98,6 +106,9 @@ struct MainView: View {
                         },
                         onEditName: {
                             transition(to: .nameEdit)
+                        },
+                        onRanking: {
+                            transition(to: .ranking)
                         }
                     )
                 }
@@ -115,7 +126,16 @@ struct MainView: View {
                     )
                 }
                 
-            }
+            case .ranking:
+                RankingView(
+                    onBack: {
+                        transition(to: .start)
+                    }
+                )
+                
+                
+                
+            }// end switch
 
 
             if showFade {

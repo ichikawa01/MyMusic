@@ -10,6 +10,7 @@ struct StatusView: View {
     let userId: String
     let onBack: () -> Void
     let onEditName: () -> Void
+    let onRanking:() -> Void
     
     var body: some View {
         ZStack {
@@ -53,7 +54,7 @@ struct StatusView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
 
                 Button("ランキングを見る") {
-                    // 今後実装
+                    onRanking()
                 }
                 .font(.title)
                 .foregroundColor(.white)
@@ -81,5 +82,5 @@ struct StatusView: View {
 }
 
 #Preview {
-    StatusView(userId: "", onBack: {}, onEditName: {})
+    StatusView(userId: "", onBack: {}, onEditName: {}, onRanking: {})
 }

@@ -15,6 +15,7 @@ struct ResultView: View {
     let mode: QuizMode
     
     let onNext: () -> Void
+    let onRanking: () -> Void
 
 
     var body: some View {
@@ -37,16 +38,31 @@ struct ResultView: View {
 
                 Spacer().frame(height: 1)
                 
-                Button("退場") {
-                    onNext()
+                VStack {
+                    Button("退場") {
+                        onNext()
+                    }
+                    .padding()
+                    .bold()
+                    .font(.title2)
+                    .frame(width: 120, height: 60)
+                    .background(Color.startBtn)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    
+                    Button("ランキングへ") {
+                        onRanking()
+                    }
+                    .padding()
+                    .bold()
+                    .font(.title2)
+                    .frame(width: 180, height: 60)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(12)
+                    
                 }
-                .padding()
-                .bold()
-                .font(.title2)
-                .frame(width: 120, height: 60)
-                .background(Color.startBtn)
-                .foregroundColor(.white)
-                .cornerRadius(12)
+                
                 
             }
         }
@@ -59,6 +75,7 @@ struct ResultView: View {
     ResultView(
         score: 10,
         mode: .timeLimit,
-        onNext: {}
+        onNext: {},
+        onRanking: {}
     )
 }

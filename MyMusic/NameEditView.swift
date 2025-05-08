@@ -137,7 +137,20 @@ struct NameEditView: View {
 
     func save() {
         let db = Firestore.firestore()
+        
+        // 名前の更新
         db.collection("users").document(userId).setData(["userName": name], merge: true)
+        
+        // ランキングの過去の全データ（最大１５件）の名前を更新
+        let modes: [String] = ["level_1", "level_2", "level_3"]
+        let periods: [String] = ["daily", "weekly", "monthly", "total"]
+        
+        for mode in modes {
+            for period in periods {
+                let path = "rankings/\(mode)_\(period)/entries/\(userId)"
+                db.document(path).updateData(["userName": name])
+            }
+        }
     }
 }
 

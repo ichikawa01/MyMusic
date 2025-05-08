@@ -14,8 +14,17 @@ enum QuizModeRank: String {
     case level_3
 }
 
-enum RankingPeriod: String {
-    case daily, weekly, monthly, yearly, total
+enum RankingPeriod: String, CaseIterable {
+    case daily, weekly, monthly, total
+    
+    var displayName: String {
+            switch self {
+            case .daily: return "今日"
+            case .weekly: return "今週"
+            case .monthly: return "今月"
+            case .total: return "累計"
+            }
+        }
 }
 
 class RankingManager {
@@ -24,7 +33,7 @@ class RankingManager {
 
     func submitScore(userId: String, userName: String, score: Int, mode: QuizModeRank) {
         let now = Date()
-        let periods: [RankingPeriod] = [.daily, .weekly, .monthly, .yearly, .total]
+        let periods: [RankingPeriod] = [.daily, .weekly, .monthly, .total]
 
         for period in periods {
             let collectionName = "\(mode.rawValue)_\(period.rawValue)"
@@ -47,7 +56,7 @@ class RankingManager {
             .document(collectionName)
             .collection("entries")
             .order(by: "score", descending: true)
-            .limit(to: 50)
+            .limit(to: 100)
             .getDocuments { snapshot, error in
                 guard let docs = snapshot?.documents else {
                     completion([])
