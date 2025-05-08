@@ -12,6 +12,7 @@ struct ModeSelectView: View {
     
     let onNext: (QuizMode) -> Void
     let onBack: () -> Void
+    let onStatus: () -> Void
 
     
     var body: some View {
@@ -34,6 +35,15 @@ struct ModeSelectView: View {
                             .padding(.leading, 20)
                     }
                     Spacer()
+                    // 初回は名前の入力、次回以降はonStatus()
+                    Button(action: {
+                        onStatus()
+                    }) {
+                        Image(.menu)
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.trailing, 25)
+                    }
                 }
                 Spacer()
             }

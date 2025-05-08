@@ -51,6 +51,9 @@ struct MainView: View {
                     },
                     onBack: {
                         transition(to: .start)
+                    },
+                    onStatus: {
+                        transition(to: .status)
                     }
                 )
                 
@@ -62,6 +65,9 @@ struct MainView: View {
                     },
                     onBack: {
                         transition(to: .modeSelect)
+                    },
+                    onStatus: {
+                        transition(to: .status)
                     }
                 )
                 

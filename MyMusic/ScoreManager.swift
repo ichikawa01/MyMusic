@@ -5,6 +5,8 @@
 //  Created by 市川涼 on 2025/05/07.
 //
 
+
+import Foundation
 import FirebaseFirestore
 
 class ScoreManager {

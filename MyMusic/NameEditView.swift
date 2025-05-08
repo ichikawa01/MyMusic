@@ -33,6 +33,7 @@ struct NameEditView: View {
                 HStack{
                     // 戻るボタン（左上）
                     Button(action: {
+                        isInputFocused = false
                         onClose()
                     }) {
                         Image(.backIconWhite)
@@ -81,7 +82,10 @@ struct NameEditView: View {
                         
                     }
                     HStack{
-                        Button("キャンセル", action: onClose)
+                        Button("キャンセル") {
+                            isInputFocused = false
+                            onClose()
+                        }
                             .font(.title2)
                             .foregroundColor(.white)
                             .bold()
@@ -91,6 +95,7 @@ struct NameEditView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 12))
                         
                         Button("保存") {
+                            isInputFocused = false
                             save()
                             onClose()
                         }

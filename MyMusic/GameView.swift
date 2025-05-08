@@ -8,6 +8,8 @@
 
 // GameView.swift
 import SwiftUI
+import FirebaseFirestore
+import FirebaseAuth
 
 struct GameView: View {
     
@@ -91,19 +93,22 @@ struct GameView: View {
 
             VStack(spacing: 20) {
                 
+                Spacer().frame(height: 50)
+                
                 if !isFinished {
                     
                     if !timerStarted {
                         Text("文字を入力したらスタート！")
                             .font(.title3)
                             .bold()
-                            .foregroundColor(.pink)
+                            .foregroundColor(.white)
+                            .frame(height: 1)
                     }
                     
                     Text(timerText)
                         .font(.title2)
                         .bold()
-                        .foregroundColor(.pink)
+                        .foregroundColor(.white)
                     
                 }
                 
@@ -270,6 +275,30 @@ struct GameView: View {
         let previousTotal = UserDefaults.standard.integer(forKey: "totalCorrect")
         let newTotal = previousTotal + totalCharNum
         UserDefaults.standard.set(newTotal, forKey: "totalCorrect")
+        
+        // スコアの送信
+        if mode == .timeLimit {
+            AuthManager.shared.signInIfNeeded { userId in
+                guard let userId = userId else { return }
+                UserManager.shared.getUserName(userId: userId) { name in
+                    let quizRank: QuizModeRank = {
+                        switch category {
+                        case .level_1: return .level_1
+                        case .level_2: return .level_2
+                        case .level_3: return .level_3
+                        }
+                    }()
+
+                    RankingManager.shared.submitScore(
+                        userId: userId,
+                        userName: name,
+                        score: totalCharNum,
+                        mode: quizRank
+                    )
+                }
+            }
+        }
+
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             onFinish(currentWordIndex)

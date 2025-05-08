@@ -23,8 +23,8 @@ struct FuriganaText: View {
             HStack(spacing: 0) {
                 ForEach(Array(reading.enumerated()), id: \.offset) { index, char in
                     Text(String(char))
-                        .foregroundColor(index < correctCount ? .green : .black)
-                        .font(.largeTitle)
+                        .foregroundColor(index < correctCount ? .pink : .black)
+                        .font(.title2)
                         .fontWeight(.medium)
                 }
             }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F67F83C2DCCA01400C4B372 /* RankingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67F83B2DCCA01400C4B372 /* RankingManager.swift */; };
+		5F67F83E2DCCA0D400C4B372 /* RankingEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67F83D2DCCA0D400C4B372 /* RankingEntry.swift */; };
+		5F67F8402DCCA26900C4B372 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67F83F2DCCA26900C4B372 /* UserManager.swift */; };
 		5F7615EB2DCB8EFB00EE2E69 /* level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F7615E82DCB8EFB00EE2E69 /* level_3.json */; };
 		5F7615EC2DCB8EFB00EE2E69 /* level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F7615E92DCB8EFB00EE2E69 /* level_2.json */; };
 		5F7615ED2DCB8EFB00EE2E69 /* level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 5F7615EA2DCB8EFB00EE2E69 /* level_1.json */; };
@@ -55,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F67F83B2DCCA01400C4B372 /* RankingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingManager.swift; sourceTree = "<group>"; };
+		5F67F83D2DCCA0D400C4B372 /* RankingEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEntry.swift; sourceTree = "<group>"; };
+		5F67F83F2DCCA26900C4B372 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		5F7615E82DCB8EFB00EE2E69 /* level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_3.json; sourceTree = "<group>"; };
 		5F7615E92DCB8EFB00EE2E69 /* level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_2.json; sourceTree = "<group>"; };
 		5F7615EA2DCB8EFB00EE2E69 /* level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = level_1.json; sourceTree = "<group>"; };
@@ -168,14 +174,17 @@
 				5FEBC9982DCBE3660052F780 /* StatusView.swift */,
 				5F7615F82DCB9E0300EE2E69 /* ScoreManager.swift */,
 				5FEBC9942DCBCE2D0052F780 /* AuthManager.swift */,
+				5F67F83F2DCCA26900C4B372 /* UserManager.swift */,
+				5F67F83B2DCCA01400C4B372 /* RankingManager.swift */,
+				5F67F83D2DCCA0D400C4B372 /* RankingEntry.swift */,
 				5FB184752DC9EA4D00C22875 /* QuizMode.swift */,
 				5FB1845C2DC93C8400C22875 /* QuizCategory.swift */,
 				5FB1844E2DC91ACD00C22875 /* FuriganaText.swift */,
 				5FB1845E2DC93CFB00C22875 /* WordLoader.swift */,
 				5FB1847B2DCA22CC00C22875 /* Rank.swift */,
 				5F7615EE2DCB996F00EE2E69 /* GoogleService-Info.plist */,
-				5F7615DF2DCB8B9C00EE2E69 /* Words */,
 				5FE8B9422DC774FA0000B97D /* Assets.xcassets */,
+				5F7615DF2DCB8B9C00EE2E69 /* Words */,
 				5FE8B9442DC774FA0000B97D /* Preview Content */,
 			);
 			path = MyMusic;
@@ -355,14 +364,17 @@
 				5FEBC9972DCBD46E0052F780 /* NameInputView.swift in Sources */,
 				5FB1845D2DC93C8400C22875 /* QuizCategory.swift in Sources */,
 				5FB1845F2DC93CFB00C22875 /* WordLoader.swift in Sources */,
+				5F67F83E2DCCA0D400C4B372 /* RankingEntry.swift in Sources */,
 				5FB184762DC9EA4D00C22875 /* QuizMode.swift in Sources */,
 				5FB1847A2DC9F26200C22875 /* CategorySelectView.swift in Sources */,
 				5FEBC9992DCBE3660052F780 /* StatusView.swift in Sources */,
 				5FEBC99B2DCBE3BE0052F780 /* NameEditView.swift in Sources */,
+				5F67F83C2DCCA01400C4B372 /* RankingManager.swift in Sources */,
 				5FB1845B2DC9340500C22875 /* ResultView.swift in Sources */,
 				5FB1844F2DC91ACD00C22875 /* FuriganaText.swift in Sources */,
 				5F7615F92DCB9E0300EE2E69 /* ScoreManager.swift in Sources */,
 				5FB1847C2DCA22CC00C22875 /* Rank.swift in Sources */,
+				5F67F8402DCCA26900C4B372 /* UserManager.swift in Sources */,
 				5FB184572DC9249500C22875 /* GameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

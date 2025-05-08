@@ -13,6 +13,7 @@ struct CategorySelectView: View {
     
     let onNext: (QuizCategory) -> Void
     let onBack: () -> Void
+    let onStatus: () -> Void
 
     var body: some View {
         ZStack{
@@ -34,6 +35,15 @@ struct CategorySelectView: View {
                             .padding(.leading, 20)
                     }
                     Spacer()
+                    // onStatus()
+                    Button(action: {
+                        onStatus()
+                    }) {
+                        Image(.menu)
+                            .resizable()
+                            .frame(width: 45, height: 45)
+                            .padding(.trailing, 25)
+                    }
                 }
                 Spacer()
             }

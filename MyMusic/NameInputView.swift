@@ -29,6 +29,7 @@ struct NameInputView: View {
                 HStack{
                     // 戻るボタン（左上）
                     Button(action: {
+                        isInputFocused = false
                         onBack()
                     }) {
                         Image(.backIconWhite)
@@ -78,6 +79,7 @@ struct NameInputView: View {
                 }
                 
                 Button("決定") {
+                    isInputFocused = false
                     saveUserName(userId: userId, name: name)
                     onComplete()
                 }
@@ -91,6 +93,7 @@ struct NameInputView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .padding()
+            }
         }
         
         
@@ -103,7 +106,7 @@ struct NameInputView: View {
             "userName": name
         ], merge: true)
     }
-}
+
 
 #Preview {
     NameInputView(
