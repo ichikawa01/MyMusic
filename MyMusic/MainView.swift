@@ -37,9 +37,6 @@ struct MainView: View {
                 StartView(
                     onNext: {
                         transition(to: .modeSelect)
-                    },
-                    onStatus: {
-                        transition(to: .status)
                     }
                 )
                 

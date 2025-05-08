@@ -115,7 +115,7 @@ struct GameView: View {
                 // 終了画面
                 if isFinished {
                     
-                    Text(isAllClear ? "全問クリア！" : "終了！")
+                    Text(isAllClear ? "全問クリア！" : "そこまで！")
                         .font(.system(size: 60, weight: .bold))
                         .foregroundColor(.black)
                     

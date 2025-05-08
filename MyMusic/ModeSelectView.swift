@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ModeSelectView: View {
-    @Environment(\.dismiss) private var dismiss
+    @AppStorage("totalCorrect") var totalCorrect: Int = 0
+
     
     let onNext: (QuizMode) -> Void
     let onBack: () -> Void
@@ -51,7 +52,33 @@ struct ModeSelectView: View {
             
             VStack(spacing: 20) {
                 
-                Spacer().frame(height: 320)
+                Spacer().frame(height: 220)
+                
+                let rank = Rank.getRank(for: totalCorrect)
+                let nextThreshold = Rank.nextThreshold(for: totalCorrect)
+                let remaining = nextThreshold.map { $0 - totalCorrect }
+
+                Text("現在の称号：\(rank.rawValue)：\(totalCorrect)")
+                    .font(.title2)
+                    .bold()
+                    .foregroundColor(.gray)
+                    .background(Color.black)
+                    .frame(height: 0)
+
+                if let remaining = remaining {
+                    Text("次の称号まで残り \(remaining) 文字")
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.gray)
+                        .background(Color.black)
+                        .padding(.bottom, 20)
+                } else {
+                    Text("最高称号に到達！")
+                        .font(.subheadline)
+                        .foregroundColor(.yellow)
+                        .padding(.bottom, 20)
+                }
+
                 
                 ForEach(QuizMode.allCases, id: \.self) { mode in
                     Button(mode.description) {
@@ -70,4 +97,13 @@ struct ModeSelectView: View {
         }
         
     }
+}
+
+#Preview {
+    ModeSelectView(
+//        totalCorrect: 1,
+        onNext: { _ in },
+        onBack: {},
+        onStatus: {}
+    )
 }

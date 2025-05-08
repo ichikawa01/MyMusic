@@ -20,11 +20,7 @@ struct StartView: View {
     @State private var selectedMode: QuizMode = .timeLimit
     
     let onNext: () -> Void
-//    let onBack:() -> Void
-    let onStatus: () -> Void
-    
-    @AppStorage("totalCorrect") var totalCorrect: Int = 0
-    
+        
     var body: some View {
             if isEnteringName, let uid = userId {
                 NameInputView (
@@ -51,67 +47,10 @@ struct StartView: View {
             Image(.dojo)
                 .resizable()
                 .ignoresSafeArea()
-            
-            VStack{
-                HStack{
-                    
-                    Spacer()
-                    // 初回は名前の入力、次回以降はonStatus()
-                    Button(action: {
-                        AuthManager.shared.signInIfNeeded { uid in
-                            self.userId = uid
-                            if let uid = userId {
-                                
-                                checkIfUserNameExists(userId: uid) { exists in
-                                    if exists {
-                                        hasEnteredName = true // 念のため同期
-                                        print("ユーザー存在確認")
-                                        onStatus()
-                                    } else {
-                                        isEnteringName = true
-                                    }
-                                }
-                                
-                            }
-                        }
-                    }) {
-                        Image(.menu)
-                            .resizable()
-                            .frame(width: 45, height: 45)
-                            .padding(.trailing, 25)
-                    }
-                }
-                Spacer()
-            }
 
             VStack(spacing: 20) {
                 
-                Spacer().frame(height: 180)
-                
-                let rank = Rank.getRank(for: totalCorrect)
-                let nextThreshold = Rank.nextThreshold(for: totalCorrect)
-                let remaining = nextThreshold.map { $0 - totalCorrect }
-
-                Text("現在の称号：\(rank.rawValue)：\(totalCorrect)")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(.gray)
-                    .background(Color.black)
-                    .frame(width: 400, height: 0)
-
-                if let remaining = remaining {
-                    Text("次の称号まで残り \(remaining) 文字")
-                        .font(.subheadline)
-                        .bold()
-                        .foregroundColor(.gray)
-                        .background(Color.black)
-                        .padding(.bottom, 60)
-                } else {
-                    Text("最高称号に到達！")
-                        .font(.subheadline)
-                        .foregroundColor(.yellow)
-                        .padding(.bottom, 50)
-                }
+                Spacer().frame(height: 260)
 
                 // 初回は名前の入力、次回以降はonNext()
                 Button(action: {
@@ -167,9 +106,6 @@ struct StartView: View {
 
 #Preview {
     StartView(
-        onNext: {},
-//        onBack: {},
-        onStatus: {},
-        totalCorrect: 1)
+        onNext: {})
 }
 
