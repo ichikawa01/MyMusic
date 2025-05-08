@@ -145,13 +145,6 @@ struct MainView: View {
             }
         }
         .animation(.easeInOut(duration: 0.5), value: showFade)
-        
-        Button("スコア送信") {
-            AuthManager.shared.signInIfNeeded { userId in
-                guard let userId = userId else { return }
-                ScoreManager.shared.submitScore(userId: userId, score: 123)
-            }
-        }
 
     }
     
